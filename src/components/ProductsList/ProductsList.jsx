@@ -1,13 +1,14 @@
 import Product from "../Product/Product";
+import { PaiDaLista } from "../Product/ProductScreen";
 
 function ProductsList({ products, adicionarCarrinho }) {
   return (
     <>
-      <ul>
+      <PaiDaLista>
         {products.map((item, id) => (
           <Product key={id} item={item} adicionarCarrinho={adicionarCarrinho} />
         ))}
-      </ul>
+      </PaiDaLista>
     </>
   );
 }

@@ -5,6 +5,7 @@ export const Main = styled.main`
   width: 20rem;
   height: 100px;
   background-color: purple;
+  margin: auto;
   margin-top: 1rem;
 
   img {
@@ -48,9 +49,4 @@ export const ButtonRemover = styled.button`
   font-weight: 500;
   font-size: 12px;
   line-height: 15px;
-  /* identical to box height */
-
-  /* Gray 4 */
-
-  color: #bdbdbd;
 `;

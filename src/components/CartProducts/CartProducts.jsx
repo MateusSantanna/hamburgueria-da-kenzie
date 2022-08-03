@@ -1,6 +1,6 @@
 // MEU OBJETIVO É CRIAR OS CARDS DO PRODUTO DENTRO DO CARRINHO USANDO ESSE COMPONENTE
 
-import { ButtonRemover, ListaCards, Main } from "./style";
+import { ButtonRemover, ListaCards, Main } from "./Carrinho";
 
 function CartProducts({ item, removeCart }) {
   return (

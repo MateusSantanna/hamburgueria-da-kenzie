@@ -3,6 +3,7 @@ import ProductsList from "./components/ProductsList/ProductsList";
 import Cart from "./components/Cart/Cart";
 import { useEffect, useState } from "react";
 import Header from "./components/Header/Header";
+import { CarrinhoCompleto, CarrinhoTitulo, PaiDeTodos } from "./style";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -89,16 +90,17 @@ function App() {
         filtered={showProducts}
         filteredProducts={filteredProducts}
       />
-      <div className="cards">
+
+      <PaiDeTodos>
         <ProductsList
           products={products}
           adicionarCarrinho={adicionarCarrinho}
         />
 
-        <div>
-          <div>
+        <CarrinhoCompleto>
+          <CarrinhoTitulo>
             <h1>Carrinho de Compras</h1>
-          </div>
+          </CarrinhoTitulo>
 
           {currentSale.length === 0 ? (
             <>
@@ -116,8 +118,8 @@ function App() {
               />
             </>
           )}
-        </div>
-      </div>
+        </CarrinhoCompleto>
+      </PaiDeTodos>
     </div>
   );
 }
