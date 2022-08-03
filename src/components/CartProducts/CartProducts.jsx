@@ -1,17 +1,19 @@
 // MEU OBJETIVO É CRIAR OS CARDS DO PRODUTO DENTRO DO CARRINHO USANDO ESSE COMPONENTE
 
-function CartProducts({ product, removeCart }) {
+import { ButtonRemover, ListaCards, Main } from "./style";
+
+function CartProducts({ item, removeCart }) {
   return (
-    <main>
-      <img src={product.img} alt={product.name} />
-      <li>
+    <Main>
+      <img src={item.img} alt={item.name} />
+      <ListaCards>
         <>
-          <h1>{product.name}</h1>
-          <p>{product.category}</p>
+          <h4>{item.name}</h4>
+          <p>{item.category}</p>
         </>
-      </li>
-      <button onClick={() => removeCart(product)}>Remover</button>
-    </main>
+      </ListaCards>
+      <ButtonRemover onClick={() => removeCart(item)}>Remover</ButtonRemover>
+    </Main>
   );
 }
 

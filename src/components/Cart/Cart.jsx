@@ -1,20 +1,26 @@
 import CartProducts from "../CartProducts/CartProducts";
 
-function Cart({ currentSale, cartTotal, setCurrentSale, removeCart }) {
+function Cart({
+  currentSale,
+  cartTotal,
+  setCurrentSale,
+  removeCart,
+  removeTodos,
+}) {
   return (
-    <div className="cart">
-      <div className="cartName">
-        <h1>Carrinho de Compras</h1>
-        <div className="cardsCart">
+    <div>
+      <div>
+        {currentSale.map((item, id) => (
           <CartProducts
+            key={id}
             removeCart={removeCart}
-            cartTotal={cartTotal}
             setCurrentSale={setCurrentSale}
+            item={item}
           />
-        </div>
+        ))}
       </div>
-      <p>Valor Total: {currentSale}</p>
-      <button>Remover Todos</button>
+      <p>Valor Total: {cartTotal}</p>
+      <button onClick={() => removeTodos}>Remover Todos</button>
     </div>
   );
 }

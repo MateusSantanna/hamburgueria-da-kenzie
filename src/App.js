@@ -70,6 +70,17 @@ function App() {
     setCurrentSale(currentSale.filter((item) => item.id !== product.id));
   }
 
+  function adicionarCarrinho(item) {
+    const encontrarItem = currentSale.find((itemCard) => itemCard === item);
+    encontrarItem === undefined
+      ? setCurrentSale([...currentSale, item])
+      : alert("Este ítem já foi adicionado");
+  }
+
+  function removeTodos() {
+    setCurrentSale([]);
+  }
+
   return (
     <div className="App">
       <Header
@@ -79,22 +90,31 @@ function App() {
         filteredProducts={filteredProducts}
       />
       <div className="cards">
-        <ProductsList products={products} />
+        <ProductsList
+          products={products}
+          adicionarCarrinho={adicionarCarrinho}
+        />
 
-        <div className="carrinho">
-          <h1>Carrinho de compras</h1>
+        <div>
+          <div>
+            <h1>Carrinho de Compras</h1>
+          </div>
+
           {currentSale.length === 0 ? (
             <>
               <h1>Sua sacola está vazia</h1>
               <p>Adicione itens</p>
             </>
           ) : (
-            <Cart
-              currentSale={currentSale}
-              cartTotal={cartTotal}
-              setCurrentSale={setCurrentSale}
-              removeCart={removeProduct}
-            />
+            <>
+              <Cart
+                currentSale={currentSale}
+                cartTotal={cartTotal}
+                setCurrentSale={setCurrentSale}
+                removeCart={removeProduct}
+                removerTodos={removeTodos}
+              />
+            </>
           )}
         </div>
       </div>

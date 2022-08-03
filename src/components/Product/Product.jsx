@@ -1,4 +1,4 @@
-function Product({ item }) {
+function Product({ item, adicionarCarrinho }) {
   return (
     <>
       <li>
@@ -7,7 +7,7 @@ function Product({ item }) {
           <h1>{item.name}</h1>
           <p>{item.category}</p>
           <p>R${item.price},00</p>
-          <button>Adicionar</button>
+          <button onClick={() => adicionarCarrinho(item)}>Adicionar</button>
         </div>
       </li>
     </>
