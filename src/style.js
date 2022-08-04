@@ -17,7 +17,9 @@ export const CarrinhoCompleto = styled.div`
   justify-content: center;
   align-items: center;
   gap: 20px;
-  background-color: yellow;
+  background: #f5f5f5;
+  border-radius: 0px 0px 5px 5px;
+
   width: 365px;
   height: 450px;
   overflow-x: scroll;

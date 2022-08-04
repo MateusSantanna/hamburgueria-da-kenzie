@@ -1,13 +1,6 @@
-import { Paragrafos, ValorOption } from "../CartProducts/Carrinho";
 import CartProducts from "../CartProducts/CartProducts";
 
-function Cart({
-  currentSale,
-  cartTotal,
-  setCurrentSale,
-  removeCart,
-  removeTodos,
-}) {
+function Cart({ currentSale, setCurrentSale, removeCart }) {
   return (
     <>
       <div>
@@ -20,15 +13,6 @@ function Cart({
           />
         ))}
       </div>
-
-      <ValorOption>
-        <Paragrafos>
-          <p>Valor Total:</p>
-          <p>R${cartTotal},00</p>
-        </Paragrafos>
-
-        <button onClick={() => removeTodos}>Remover Todos</button>
-      </ValorOption>
     </>
   );
 }

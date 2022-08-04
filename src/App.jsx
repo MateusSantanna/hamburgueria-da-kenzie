@@ -9,6 +9,7 @@ import {
   PaiDoCarrinho,
   PaiDeTodos,
 } from "./style";
+import { Paragrafos, ValorOption } from "./components/CartProducts/Carrinho";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -84,7 +85,7 @@ function App() {
   }
 
   function removeTodos() {
-    setCurrentSale([]);
+    return setCurrentSale([]);
   }
 
   return (
@@ -122,6 +123,15 @@ function App() {
               </>
             )}
           </CarrinhoCompleto>
+
+          <ValorOption>
+            <Paragrafos>
+              <p>Valor Total:</p>
+              <p>R${cartTotal},00</p>
+            </Paragrafos>
+
+            <button onClick={() => removeTodos}>Remover Todos</button>
+          </ValorOption>
         </PaiDoCarrinho>
       </PaiDeTodos>
     </div>

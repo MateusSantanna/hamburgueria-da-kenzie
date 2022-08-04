@@ -4,7 +4,9 @@ export const Main = styled.main`
   display: flex;
   width: 20rem;
   height: 100px;
-  background-color: purple;
+  background: #f5f5f5;
+  border-radius: 0px 0px 5px 5px;
+
   margin: auto;
   margin-top: 1rem;
 
@@ -38,7 +40,7 @@ export const ListaCards = styled.li`
 `;
 
 export const ButtonRemover = styled.button`
-  color: #bdbdbd;
+  color: black;
   height: 15px;
   width: 51px;
   left: 292px;
@@ -54,7 +56,9 @@ export const ButtonRemover = styled.button`
 export const ValorOption = styled.div`
   width: 363px;
   height: 150px;
-  background-color: red;
+  background: grey;
+  border-radius: 0px 0px 5px 5px;
+
   justify-content: center;
 
   button {
