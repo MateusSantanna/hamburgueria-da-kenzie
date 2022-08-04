@@ -1,3 +1,4 @@
+import { Paragrafos, ValorOption } from "../CartProducts/Carrinho";
 import CartProducts from "../CartProducts/CartProducts";
 
 function Cart({
@@ -8,7 +9,7 @@ function Cart({
   removeTodos,
 }) {
   return (
-    <div>
+    <>
       <div>
         {currentSale.map((item, id) => (
           <CartProducts
@@ -19,9 +20,16 @@ function Cart({
           />
         ))}
       </div>
-      <p>Valor Total: {cartTotal}</p>
-      <button onClick={() => removeTodos}>Remover Todos</button>
-    </div>
+
+      <ValorOption>
+        <Paragrafos>
+          <p>Valor Total:</p>
+          <p>R${cartTotal},00</p>
+        </Paragrafos>
+
+        <button onClick={() => removeTodos}>Remover Todos</button>
+      </ValorOption>
+    </>
   );
 }
 

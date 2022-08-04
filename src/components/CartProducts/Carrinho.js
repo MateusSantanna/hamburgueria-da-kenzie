@@ -50,3 +50,23 @@ export const ButtonRemover = styled.button`
   font-size: 12px;
   line-height: 15px;
 `;
+
+export const ValorOption = styled.div`
+  width: 363px;
+  height: 150px;
+  background-color: red;
+  justify-content: center;
+
+  button {
+    width: 300px;
+    height: 50px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    margin-top: 1rem;
+  }
+`;
+
+export const Paragrafos = styled.div`
+  display: flex;
+  justify-content: space-around;
+`;

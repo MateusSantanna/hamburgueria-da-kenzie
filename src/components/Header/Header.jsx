@@ -1,19 +1,21 @@
+import { BotaoPesquisar, Cabecalho, CaixaDeTexto } from "./HeaderStyle";
+
 function Header({ InputValue, setInputValue, filtered }) {
   return (
     <>
-      <main>
-        <img alt="Logo BurguerKenzie" />
+      <Cabecalho>
+        <img src="Mask Group.png" alt="Logo da Kenzie" srcset="" />
         <form onSubmit={(event) => event.preventDefault()}>
-          <input
+          <CaixaDeTexto
             value={InputValue}
             onChange={(event) => setInputValue(event.target.value)}
             placeholder="Pesquisar produto"
           />
-          <button type="button" onClick={() => filtered(InputValue)}>
+          <BotaoPesquisar type="button" onClick={() => filtered(InputValue)}>
             Pesquisar
-          </button>
+          </BotaoPesquisar>
         </form>
-      </main>
+      </Cabecalho>
     </>
   );
 }

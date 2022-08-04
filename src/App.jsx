@@ -3,7 +3,12 @@ import ProductsList from "./components/ProductsList/ProductsList";
 import Cart from "./components/Cart/Cart";
 import { useEffect, useState } from "react";
 import Header from "./components/Header/Header";
-import { CarrinhoCompleto, CarrinhoTitulo, PaiDeTodos } from "./style";
+import {
+  CarrinhoCompleto,
+  CarrinhoTitulo,
+  PaiDoCarrinho,
+  PaiDeTodos,
+} from "./style";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -97,28 +102,27 @@ function App() {
           adicionarCarrinho={adicionarCarrinho}
         />
 
-        <CarrinhoCompleto>
-          <CarrinhoTitulo>
-            <h1>Carrinho de Compras</h1>
-          </CarrinhoTitulo>
-
-          {currentSale.length === 0 ? (
-            <>
-              <h1>Sua sacola está vazia</h1>
-              <p>Adicione itens</p>
-            </>
-          ) : (
-            <>
-              <Cart
-                currentSale={currentSale}
-                cartTotal={cartTotal}
-                setCurrentSale={setCurrentSale}
-                removeCart={removeProduct}
-                removerTodos={removeTodos}
-              />
-            </>
-          )}
-        </CarrinhoCompleto>
+        <PaiDoCarrinho>
+          <CarrinhoTitulo>Carrinho de Compras</CarrinhoTitulo>
+          <CarrinhoCompleto>
+            {currentSale.length === 0 ? (
+              <>
+                <h1>Sua sacola está vazia</h1>
+                <p>Adicione itens</p>
+              </>
+            ) : (
+              <>
+                <Cart
+                  currentSale={currentSale}
+                  cartTotal={cartTotal}
+                  setCurrentSale={setCurrentSale}
+                  removeCart={removeProduct}
+                  removerTodos={removeTodos}
+                />
+              </>
+            )}
+          </CarrinhoCompleto>
+        </PaiDoCarrinho>
       </PaiDeTodos>
     </div>
   );

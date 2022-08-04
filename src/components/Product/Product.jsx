@@ -1,16 +1,22 @@
-import { ImagemScreen, ListaScreen } from "./ProductScreen";
+import {
+  ButtonCards,
+  ImagemScreen,
+  ListaScreen,
+  TituloProduto,
+} from "./CardsScreen";
 
 function Product({ item, adicionarCarrinho }) {
   return (
     <>
       <ListaScreen>
         <ImagemScreen src={item.img} alt={item.name} />
-        <div>
-          <h1>{item.name}</h1>
-          <p>{item.category}</p>
-          <p>R${item.price},00</p>
-          <button onClick={() => adicionarCarrinho(item)}>Adicionar</button>
-        </div>
+
+        <TituloProduto>{item.name}</TituloProduto>
+        <p>{item.category}</p>
+        <p>R${item.price},00</p>
+        <ButtonCards onClick={() => adicionarCarrinho(item)}>
+          Adicionar
+        </ButtonCards>
       </ListaScreen>
     </>
   );

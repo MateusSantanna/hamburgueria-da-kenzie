@@ -1,5 +1,16 @@
 import styled from "styled-components";
 
+export const PaiDeTodos = styled.div`
+  display: flex;
+`;
+
+export const PaiDoCarrinho = styled.div`
+  display: flex;
+  width: 30%;
+  flex-direction: column;
+  margin-top: 3rem;
+`;
+
 export const CarrinhoCompleto = styled.div`
   display: flex;
   flex-direction: column;
@@ -8,21 +19,17 @@ export const CarrinhoCompleto = styled.div`
   gap: 20px;
   background-color: yellow;
   width: 365px;
-  height: 400px;
+  height: 450px;
+  overflow-x: scroll;
 `;
 
 export const CarrinhoTitulo = styled.div`
   color: #ffffff;
   background: #27ae60;
   border-radius: 5px 5px 0px 0px;
+  font-weight: 900;
+  font-size: large;
   width: 365px;
   height: 65px;
-  margin: auto;
-  margin-top: auto;
-  line-height: 20px;
-`;
-
-export const PaiDeTodos = styled.div`
-  display: flex;
-  margin-top: 4rem;
+  line-height: 55px;
 `;
