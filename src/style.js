@@ -19,7 +19,6 @@ export const CarrinhoCompleto = styled.div`
   gap: 20px;
   background: #f5f5f5;
   border-radius: 0px 0px 5px 5px;
-
   width: 365px;
   height: 450px;
   overflow-x: scroll;

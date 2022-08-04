@@ -28,6 +28,14 @@ function App() {
       .catch((error) => console.log(error));
   }, []);
 
+  function filterFood() {
+    filteredProducts.filter((product) => product.category === "Sanduíches");
+  }
+
+  function filterDrink() {
+    filteredProducts.filter((product) => product.category === "Bebidas");
+  }
+
   function removeSpecials(str) {
     str = str.replace(/[ÀÁÂÃÄÅ]/g, "A");
     str = str.replace(/[àáâãäå]/g, "a");
@@ -99,6 +107,8 @@ function App() {
 
       <PaiDeTodos>
         <ProductsList
+          Comida={filterFood}
+          Bebida={filterDrink}
           products={products}
           adicionarCarrinho={adicionarCarrinho}
         />

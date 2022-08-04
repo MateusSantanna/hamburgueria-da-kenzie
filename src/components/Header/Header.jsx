@@ -1,6 +1,6 @@
 import { BotaoPesquisar, Cabecalho, CaixaDeTexto } from "./HeaderStyle";
 
-function Header({ InputValue, setInputValue, filtered }) {
+function Header({ InputValue, setInputValue, showProducts }) {
   return (
     <>
       <Cabecalho>
@@ -11,7 +11,10 @@ function Header({ InputValue, setInputValue, filtered }) {
             onChange={(event) => setInputValue(event.target.value)}
             placeholder="Pesquisar produto"
           />
-          <BotaoPesquisar type="button" onClick={() => filtered(InputValue)}>
+          <BotaoPesquisar
+            type="button"
+            onClick={() => showProducts(InputValue)}
+          >
             Pesquisar
           </BotaoPesquisar>
         </form>
