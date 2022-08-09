@@ -14,8 +14,9 @@ import { Paragrafos, ValorOption } from "./components/CartProducts/Carrinho";
 function App() {
   const [products, setProducts] = useState([]);
   const [currentSale, setCurrentSale] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
+  // const [filteredProducts, setFilteredProducts] = useState([]);
   const [InputValue, setInputValue] = useState("");
+
   const cartTotal = currentSale.reduce(
     (total, product) => total + product.price,
     0
@@ -27,59 +28,6 @@ function App() {
       .then((response) => setProducts(response))
       .catch((error) => console.log(error));
   }, []);
-
-  function filterFood() {
-    filteredProducts.filter((product) => product.category === "Sanduíches");
-  }
-
-  function filterDrink() {
-    filteredProducts.filter((product) => product.category === "Bebidas");
-  }
-
-  function removeSpecials(str) {
-    str = str.replace(/[ÀÁÂÃÄÅ]/g, "A");
-    str = str.replace(/[àáâãäå]/g, "a");
-    str = str.replace(/[ÈÉÊË]/g, "E");
-    str = str.replace(/[èéêë]/g, "e");
-    str = str.replace(/[ÍÌÎ]/g, "I");
-    str = str.replace(/[íìî]/g, "i");
-    str = str.replace(/[ÒÓÔÕÖ]/g, "O");
-    str = str.replace(/[òóôõö]/g, "o");
-    str = str.replace(/[ÙÚÛ]/g, "U");
-    str = str.replace(/[úùû]/g, "u");
-    str = str.replace(/[Ç]/g, "C");
-    str = str.replace(/[ç]/g, "c");
-    str = str.replace(/[ÍÌÎ]/g, "I");
-    str = str.replace(/[íìî]/g, "i");
-
-    return str.replace(/[^a-z0-9]/gi, "");
-  }
-
-  function showProducts() {
-    return InputValue.split("").length < 1
-      ? setFilteredProducts(products)
-      : products.some(
-          (product) =>
-            (removeSpecials(product.name.toLowerCase()).includes(
-              removeSpecials(InputValue.toLowerCase())
-            ) ||
-              removeSpecials(product.category.toLowerCase()).includes(
-                removeSpecials(InputValue.toLowerCase())
-              )) === true
-        )
-      ? setFilteredProducts(
-          products.filter(
-            (product) =>
-              removeSpecials(product.name.toLowerCase()).includes(
-                removeSpecials(InputValue.toLowerCase())
-              ) ||
-              removeSpecials(product.category.toLowerCase()).includes(
-                removeSpecials(InputValue.toLowerCase())
-              )
-          )
-        )
-      : alert("Nenhum Resultado Encontrado");
-  }
 
   function removeProduct(product) {
     setCurrentSale(currentSale.filter((item) => item.id !== product.id));
@@ -93,22 +41,17 @@ function App() {
   }
 
   function removeTodos() {
-    return setCurrentSale([]);
+    return currentSale.length > 0
+      ? setCurrentSale([])
+      : alert("Não existe itens no Carrinho");
   }
 
   return (
     <div className="App">
-      <Header
-        InputValue={InputValue}
-        setInputValue={setInputValue}
-        filtered={showProducts}
-        filteredProducts={filteredProducts}
-      />
+      <Header InputValue={InputValue} setInputValue={setInputValue} />
 
       <PaiDeTodos>
         <ProductsList
-          Comida={filterFood}
-          Bebida={filterDrink}
           products={products}
           adicionarCarrinho={adicionarCarrinho}
         />
@@ -140,7 +83,9 @@ function App() {
               <p>R${cartTotal},00</p>
             </Paragrafos>
 
-            <button onClick={() => removeTodos}>Remover Todos</button>
+            <button onClick={(event) => removeTodos(event)}>
+              Remover Todos
+            </button>
           </ValorOption>
         </PaiDoCarrinho>
       </PaiDeTodos>
